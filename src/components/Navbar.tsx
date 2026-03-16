@@ -19,12 +19,8 @@ const Navbar = () => {
     <>
       <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md" style={{ borderBottom: '1px solid hsl(0 0% 100% / 0.05)' }}>
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <a href="#" className="group">
-            <img
-              src="https://tapportfolio.lovable.app/assets/logo-CxDGoOCE.png"
-              alt="TAP Academy"
-              className="h-8 w-auto brightness-110 group-hover:scale-105 transition-transform duration-200"
-            />
+          <a href="#" className="text-2xl font-bold tracking-tight text-foreground hover:text-primary transition-colors duration-200">
+            K.S
           </a>
 
           <div className="hidden md:flex items-center gap-8">
