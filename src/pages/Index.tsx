@@ -7,14 +7,26 @@ import EducationSection from '../components/EducationSection';
 import CTASection from '../components/CTASection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import Galaxy from '../components/Galaxy';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground antialiased">
-      {/* Ambient Background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full ambient-glow-cyan blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full ambient-glow-indigo blur-[120px]" />
+      {/* Galaxy Background */}
+      <div className="fixed inset-0 pointer-events-none">
+        <Galaxy
+          starSpeed={0.5}
+          density={1}
+          hueShift={140}
+          speed={1}
+          glowIntensity={0.3}
+          saturation={0}
+          mouseRepulsion={false}
+          repulsionStrength={2}
+          twinkleIntensity={0.3}
+          rotationSpeed={0.1}
+          transparent
+        />
       </div>
 
       <Navbar />
