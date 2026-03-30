@@ -30,7 +30,7 @@ const PROJECTS: Project[] = [
     description: "Real-time collaborative platform where stories are 'woven' blindly. Participants only see the previous sentence, encouraging creative plot twists and collective world-building.",
     tech: ["React.js", "Firebase Firestore", "CSS3"],
     github: "https://github.com/sumanthks-01/Story-Weaver",
-    live: "https://weaver.sumanthaks.dev",
+    live: "https://story-weaver-xi.vercel.app/",
     status: "Completed"
   }
 ];
