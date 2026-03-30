@@ -25,7 +25,7 @@ const SkillsSection = () => (
     >
       {SKILLS.map(({ category, items, icon: Icon, color }) => (
         <div key={category} className="skills-expand-panel" style={{ '--skill-color': color } as React.CSSProperties}>
-          <Icon size={20} style={{ color }} className="shrink-0" />
+          <Icon size={20} style={{ color }} className="shrink-0 skills-expand-icon" />
           <span className="skills-expand-label">{category}</span>
           <div className="skills-expand-items">
             {items.map(skill => (
