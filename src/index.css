@@ -239,6 +239,18 @@
     gap: 0.5rem;
   }
 
+  .skills-expand-icon {
+    opacity: 0;
+    max-height: 0;
+    transition: all 0.5s;
+    overflow: hidden;
+  }
+
+  .skills-expand-panel:hover .skills-expand-icon {
+    opacity: 1;
+    max-height: 40px;
+  }
+
   .skills-expand-panel:hover {
     flex: 4;
   }
