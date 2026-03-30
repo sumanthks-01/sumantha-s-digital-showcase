@@ -1,14 +1,14 @@
 import { Layers, Code2, Database, Cpu, Terminal } from 'lucide-react';
-import GlassCard from './GlassCard';
 import SectionHeading from './SectionHeading';
+import { motion } from 'framer-motion';
 
-const SKILLS: Record<string, { items: string[]; icon: typeof Layers; color: string }> = {
-  Frontend: { items: ["HTML", "CSS", "React.js", "Tailwind CSS"], icon: Layers, color: 'hsl(187 94% 43%)' },
-  Backend: { items: ["Java", "Python", "Fast API"], icon: Code2, color: 'hsl(234 89% 74%)' },
-  Databases: { items: ["MySQL", "MongoDB"], icon: Database, color: 'hsl(152 69% 53%)' },
-  Tools: { items: ["Git", "GitHub", "Docker", "Vercel"], icon: Cpu, color: 'hsl(25 95% 53%)' },
-  "AI Tools": { items: ["ChatGPT", "Gemini", "Claude", "Lovable", "Bolt", "WindSurf"], icon: Terminal, color: 'hsl(330 81% 60%)' },
-};
+const SKILLS: { category: string; items: string[]; icon: typeof Layers; color: string }[] = [
+  { category: "Frontend", items: ["HTML", "CSS", "React.js", "Tailwind CSS"], icon: Layers, color: 'hsl(187 94% 43%)' },
+  { category: "Backend", items: ["Java", "Python", "Fast API"], icon: Code2, color: 'hsl(234 89% 74%)' },
+  { category: "Databases", items: ["MySQL", "MongoDB"], icon: Database, color: 'hsl(152 69% 53%)' },
+  { category: "Tools", items: ["Git", "GitHub", "Docker", "Vercel"], icon: Cpu, color: 'hsl(25 95% 53%)' },
+  { category: "AI Tools", items: ["ChatGPT", "Gemini", "Claude", "Lovable", "Bolt", "WindSurf"], icon: Terminal, color: 'hsl(330 81% 60%)' },
+];
 
 const SkillsSection = () => (
   <section id="skills" className="py-24 section-border">
@@ -16,21 +16,25 @@ const SkillsSection = () => (
       Technical Skills
     </SectionHeading>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {Object.entries(SKILLS).map(([category, { items, icon: Icon, color }]) => (
-        <GlassCard key={category} hover className="p-8">
-          <h3 className="text-xl font-bold mb-6 flex items-center gap-3" style={{ color: 'hsl(0 0% 100%)' }}>
-            <Icon size={20} style={{ color }} />
-            {category}
-          </h3>
-          <div className="flex flex-wrap gap-2">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5 }}
+      className="skills-expand-card"
+    >
+      {SKILLS.map(({ category, items, icon: Icon, color }) => (
+        <div key={category} className="skills-expand-panel" style={{ '--skill-color': color } as React.CSSProperties}>
+          <Icon size={20} style={{ color }} className="shrink-0" />
+          <span className="skills-expand-label">{category}</span>
+          <div className="skills-expand-items">
             {items.map(skill => (
               <span key={skill} className="skill-tag">{skill}</span>
             ))}
           </div>
-        </GlassCard>
+        </div>
       ))}
-    </div>
+    </motion.div>
   </section>
 );
 

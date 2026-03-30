@@ -214,6 +214,68 @@
     color: hsl(var(--primary));
   }
 
+  .skills-expand-card {
+    display: flex;
+    gap: 5px;
+    padding: 0.4em;
+    border-radius: 1rem;
+    background: hsl(var(--card));
+    min-height: 280px;
+  }
+
+  .skills-expand-panel {
+    flex: 1;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: all 0.5s;
+    background: hsl(var(--card));
+    border: 1px solid var(--skill-color, hsl(var(--primary)));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .skills-expand-panel:hover {
+    flex: 4;
+  }
+
+  .skills-expand-label {
+    min-width: 10em;
+    text-align: center;
+    transform: rotate(-90deg);
+    transition: all 0.5s;
+    text-transform: uppercase;
+    color: var(--skill-color, hsl(var(--primary)));
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+
+  .skills-expand-panel:hover .skills-expand-label {
+    transform: rotate(0);
+  }
+
+  .skills-expand-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    opacity: 0;
+    max-height: 0;
+    transition: all 0.5s;
+    overflow: hidden;
+  }
+
+  .skills-expand-panel:hover .skills-expand-items {
+    opacity: 1;
+    max-height: 200px;
+    margin-top: 0.5rem;
+  }
+
   .skill-tag {
     @apply px-3 py-1.5 rounded-lg text-sm transition-colors duration-200;
     background: hsl(0 0% 100% / 0.05);
