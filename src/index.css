@@ -153,13 +153,65 @@
   }
 
   .social-icon {
-    @apply p-3 rounded-full transition-all duration-200;
+    @apply p-4 rounded-full transition-all duration-300;
     border: 1px solid hsl(var(--glass-border));
+    box-shadow:
+      inset 0 0 20px hsl(0 0% 100% / 0.06),
+      inset 0 0 5px hsl(0 0% 100% / 0.1),
+      0 5px 5px hsl(0 0% 0% / 0.16);
   }
 
-  .social-icon:hover {
+  .social-icon .svg-icon {
+    transition: all 0.3s;
+  }
+
+  .iso-pro {
+    transition: 0.5s;
+    position: relative;
+  }
+
+  .iso-pro span {
+    opacity: 0;
+    position: absolute;
+    border: 1px solid hsl(var(--primary));
+    box-shadow:
+      inset 0 0 20px hsl(0 0% 100% / 0.06),
+      inset 0 0 5px hsl(0 0% 100% / 0.1),
+      0 5px 5px hsl(0 0% 0% / 0.16);
+    border-radius: 50%;
+    transition: all 0.3s;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .iso-pro:hover span {
+    opacity: 1;
+  }
+
+  .iso-pro:hover span:nth-child(1) {
+    opacity: 0.2;
+  }
+
+  .iso-pro:hover span:nth-child(2) {
+    opacity: 0.4;
+    transform: translate(5px, -5px);
+  }
+
+  .iso-pro:hover span:nth-child(3) {
+    opacity: 0.6;
+    transform: translate(10px, -10px);
+  }
+
+  .iso-pro:hover .social-icon {
     background: hsl(0 0% 100% / 0.05);
-    border-color: hsl(0 0% 100% / 0.2);
+    border-color: hsl(var(--glass-hover-border));
+  }
+
+  .iso-pro:hover .social-icon .svg-icon {
+    transform: translate(5px, -5px);
+    color: hsl(var(--primary));
   }
 
   .skill-tag {
