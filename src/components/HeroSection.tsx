@@ -64,11 +64,16 @@ const HeroSection = () => (
         <a href="#contact" className="btn-primary-solid">
           Let's Talk
         </a>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
           {SOCIALS.map((social, i) => (
-            <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className="social-icon">
-              <social.icon size={20} />
-            </a>
+            <div key={i} className="iso-pro relative">
+              <span className="absolute inset-0" />
+              <span className="absolute inset-0" />
+              <span className="absolute inset-0" />
+              <a href={social.href} target="_blank" rel="noopener noreferrer" className="social-icon relative z-10 block">
+                <social.icon size={20} className="svg-icon" />
+              </a>
+            </div>
           ))}
         </div>
       </motion.div>
