@@ -320,19 +320,60 @@
     color: hsl(var(--surface-dark));
   }
 
-  .form-input {
-    @apply w-full rounded-xl px-4 py-4 transition-colors duration-200 focus:outline-none;
-    background: hsl(0 0% 100% / 0.05);
-    border: 1px solid hsl(var(--glass-border));
+  /* Floating label inputs */
+  .floating-input {
+    position: relative;
+    margin: 20px 0 40px;
+    width: 100%;
   }
 
-  .form-input:focus {
-    border-color: hsl(var(--primary));
+  .floating-input input,
+  .floating-input textarea {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid hsl(var(--glass-border));
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 1rem;
+    color: hsl(var(--text-primary));
+    resize: none;
+    font-family: inherit;
   }
 
-  .form-label {
-    @apply text-xs font-bold uppercase tracking-widest ml-1;
+  .floating-input input:focus,
+  .floating-input input:valid,
+  .floating-input textarea:focus,
+  .floating-input textarea:valid {
+    outline: 0;
+    border-bottom-color: hsl(var(--primary));
+  }
+
+  .floating-input label {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    pointer-events: none;
+  }
+
+  .floating-input label span {
+    display: inline-block;
+    font-size: 1rem;
+    min-width: 5px;
     color: hsl(var(--text-muted));
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .floating-input input:focus + label span,
+  .floating-input input:valid + label span,
+  .floating-input textarea:focus + label span,
+  .floating-input textarea:valid + label span {
+    color: hsl(var(--primary));
+    transform: translateY(-30px);
+  }
+
+  .floating-textarea label {
+    top: 15px;
   }
 
   .section-border {
