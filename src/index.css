@@ -386,6 +386,7 @@
     width: 288px;
     height: 288px;
     transition: 200ms;
+    perspective: 1000px;
   }
 
   @media (min-width: 768px) {
@@ -415,9 +416,11 @@
     justify-content: center;
     align-items: center;
     border-radius: 2.5rem;
-    transition: 700ms;
+    transition: filter 300ms ease;
     overflow: hidden;
     border: 1px solid hsl(0 0% 100% / 0.1);
+    will-change: transform, filter;
+    transform-style: preserve-3d;
   }
 
   #tilt-card::before {
@@ -432,57 +435,13 @@
     transition: 200ms;
   }
 
-  .tilt-container:hover #tilt-card::before {
-    opacity: 80%;
-  }
-
-  .tilt-canvas {
-    perspective: 800px;
-    inset: 0;
-    z-index: 200;
-    position: absolute;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    gap: 0;
-  }
-
-  .tilt-tracker {
-    cursor: pointer;
-    position: relative;
-    z-index: 10;
-  }
-
-  .tilt-tracker:hover ~ #tilt-card {
-    transition: 125ms ease-in-out;
+  .tilt-container:hover #tilt-card {
     filter: brightness(1.1);
   }
 
-  .tr-1:hover ~ #tilt-card { transform: rotateX(20deg) rotateY(-10deg); }
-  .tr-2:hover ~ #tilt-card { transform: rotateX(20deg) rotateY(-5deg); }
-  .tr-3:hover ~ #tilt-card { transform: rotateX(20deg) rotateY(0deg); }
-  .tr-4:hover ~ #tilt-card { transform: rotateX(20deg) rotateY(5deg); }
-  .tr-5:hover ~ #tilt-card { transform: rotateX(20deg) rotateY(10deg); }
-  .tr-6:hover ~ #tilt-card { transform: rotateX(10deg) rotateY(-10deg); }
-  .tr-7:hover ~ #tilt-card { transform: rotateX(10deg) rotateY(-5deg); }
-  .tr-8:hover ~ #tilt-card { transform: rotateX(10deg) rotateY(0deg); }
-  .tr-9:hover ~ #tilt-card { transform: rotateX(10deg) rotateY(5deg); }
-  .tr-10:hover ~ #tilt-card { transform: rotateX(10deg) rotateY(10deg); }
-  .tr-11:hover ~ #tilt-card { transform: rotateX(0deg) rotateY(-10deg); }
-  .tr-12:hover ~ #tilt-card { transform: rotateX(0deg) rotateY(-5deg); }
-  .tr-13:hover ~ #tilt-card { transform: rotateX(0deg) rotateY(0deg); }
-  .tr-14:hover ~ #tilt-card { transform: rotateX(0deg) rotateY(5deg); }
-  .tr-15:hover ~ #tilt-card { transform: rotateX(0deg) rotateY(10deg); }
-  .tr-16:hover ~ #tilt-card { transform: rotateX(-10deg) rotateY(-10deg); }
-  .tr-17:hover ~ #tilt-card { transform: rotateX(-10deg) rotateY(-5deg); }
-  .tr-18:hover ~ #tilt-card { transform: rotateX(-10deg) rotateY(0deg); }
-  .tr-19:hover ~ #tilt-card { transform: rotateX(-10deg) rotateY(5deg); }
-  .tr-20:hover ~ #tilt-card { transform: rotateX(-10deg) rotateY(10deg); }
-  .tr-21:hover ~ #tilt-card { transform: rotateX(-20deg) rotateY(-10deg); }
-  .tr-22:hover ~ #tilt-card { transform: rotateX(-20deg) rotateY(-5deg); }
-  .tr-23:hover ~ #tilt-card { transform: rotateX(-20deg) rotateY(0deg); }
-  .tr-24:hover ~ #tilt-card { transform: rotateX(-20deg) rotateY(5deg); }
-  .tr-25:hover ~ #tilt-card { transform: rotateX(-20deg) rotateY(10deg); }
+  .tilt-container:hover #tilt-card::before {
+    opacity: 80%;
+  }
 
   .noselect {
     -webkit-touch-callout: none;
