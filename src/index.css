@@ -449,6 +449,8 @@
 
   .tilt-tracker {
     cursor: pointer;
+    position: relative;
+    z-index: 10;
   }
 
   .tilt-tracker:hover ~ #tilt-card {
