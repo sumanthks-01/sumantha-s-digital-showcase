@@ -509,4 +509,29 @@
   .font-mono-code {
     font-family: 'JetBrains Mono', monospace;
   }
+
+  .animated-bg {
+    background: hsl(var(--background));
+    background: linear-gradient(
+      135deg,
+      hsl(0 0% 7%) 25%,
+      hsl(0 0% 10%) 25%,
+      hsl(0 0% 10%) 50%,
+      hsl(0 0% 7%) 50%,
+      hsl(0 0% 7%) 75%,
+      hsl(0 0% 10%) 75%,
+      hsl(0 0% 10%)
+    );
+    background-size: 40px 40px;
+    animation: bg-move 4s linear infinite;
+  }
+}
+
+@keyframes bg-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
 }
