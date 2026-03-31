@@ -86,15 +86,19 @@ const HeroSection = () => (
       className="relative"
     >
       <div className="absolute inset-0 ambient-glow-cyan blur-[80px] rounded-full" />
-      <div
-        className="relative w-72 h-72 md:w-96 md:h-96 rounded-[2.5rem] overflow-hidden rotate-3 hover:rotate-0 transition-transform duration-500"
-        style={{ border: '1px solid hsl(0 0% 100% / 0.1)' }}
-      >
-        <img
-          src="https://image2url.com/r2/default/images/1773666299442-43186c24-f0ac-48bd-884e-c9e4886ff53a.jpg"
-          alt="Sumantha K S"
-          className="w-full h-full object-cover scale-110"
-        />
+      <div className="tilt-container noselect">
+        <div className="tilt-canvas">
+          {Array.from({ length: 25 }, (_, i) => (
+            <div key={i} className={`tilt-tracker tr-${i + 1}`} />
+          ))}
+          <div id="tilt-card">
+            <img
+              src="https://image2url.com/r2/default/images/1773666299442-43186c24-f0ac-48bd-884e-c9e4886ff53a.jpg"
+              alt="Sumantha K S"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
       </div>
     </motion.div>
   </section>
