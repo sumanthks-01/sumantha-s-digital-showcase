@@ -2,6 +2,7 @@ import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-moti
 import type { MouseEvent } from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import Typewriter from './Typewriter';
+import profileImg from '@/assets/profile.png';
 
 const SOCIALS = [
   { icon: Github, href: "https://github.com/sumanthks-01" },
