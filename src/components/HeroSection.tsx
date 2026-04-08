@@ -2,6 +2,7 @@ import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-moti
 import type { MouseEvent } from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import Typewriter from './Typewriter';
+import profileImg from '@/assets/profile.png';
 
 const SOCIALS = [
   { icon: Github, href: "https://github.com/sumanthks-01" },
@@ -123,7 +124,7 @@ const HeroSection = () => {
             }
           >
             <img
-              src="https://image2url.com/r2/default/images/1773666299442-43186c24-f0ac-48bd-884e-c9e4886ff53a.jpg"
+              src={profileImg}
               alt="Sumantha K S"
               className="w-full h-full object-cover"
               draggable={false}
