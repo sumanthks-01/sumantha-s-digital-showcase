@@ -26,20 +26,6 @@ const REPO_LIST = [
   'sumanthks-01/Diabities-Prediction-Using-ML',
 ];
 
-const AI_ML_HINTS = ['machine-learning', 'ml', 'ai', 'deep-learning', 'data-science', 'nlp'];
-const WEB_LANGS = ['JavaScript', 'TypeScript', 'HTML', 'CSS', 'Vue', 'Svelte'];
-
-function categorize(repo: GithubRepo): string {
-  const topics = repo.topics.map((t) => t.toLowerCase());
-  if (topics.some((t) => AI_ML_HINTS.includes(t))) return 'AI/ML';
-  if (repo.language === 'Python' && !WEB_LANGS.includes(repo.language)) {
-    // Python defaults to AI/ML for this portfolio
-    return 'AI/ML';
-  }
-  if (repo.language && WEB_LANGS.includes(repo.language)) return 'Web App';
-  return 'Other';
-}
-
 function prettifyName(name: string): string {
   return name.replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim();
 }
@@ -50,7 +36,7 @@ function repoToProject(repo: GithubRepo): Project {
   ).slice(0, 8);
   return {
     title: prettifyName(repo.name),
-    category: categorize(repo),
+    category: repo.language || 'Other',
     description: repo.description || 'No description available.',
     tech,
     github: repo.html_url,
