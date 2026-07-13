@@ -52,9 +52,9 @@ const ProjectsSection = () => {
   const projects = useMemo(() => repos.map(repoToProject), [repos]);
 
   const filters = useMemo(() => {
-    const cats = new Set(projects.map((p) => p.category));
-    const order = ['All', 'Web App', 'AI/ML', 'Other'];
-    return order.filter((f) => f === 'All' || cats.has(f));
+  const filters = useMemo(() => {
+    const cats = Array.from(new Set(projects.map((p) => p.category))).sort();
+    return ['All', ...cats];
   }, [projects]);
 
   const filtered = useMemo(
