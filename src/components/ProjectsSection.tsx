@@ -52,7 +52,6 @@ const ProjectsSection = () => {
   const projects = useMemo(() => repos.map(repoToProject), [repos]);
 
   const filters = useMemo(() => {
-  const filters = useMemo(() => {
     const cats = Array.from(new Set(projects.map((p) => p.category))).sort();
     return ['All', ...cats];
   }, [projects]);
