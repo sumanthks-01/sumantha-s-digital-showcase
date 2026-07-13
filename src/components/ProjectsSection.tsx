@@ -26,20 +26,6 @@ const REPO_LIST = [
   'sumanthks-01/Diabities-Prediction-Using-ML',
 ];
 
-const AI_ML_HINTS = ['machine-learning', 'ml', 'ai', 'deep-learning', 'data-science', 'nlp'];
-const WEB_LANGS = ['JavaScript', 'TypeScript', 'HTML', 'CSS', 'Vue', 'Svelte'];
-
-function categorize(repo: GithubRepo): string {
-  const topics = repo.topics.map((t) => t.toLowerCase());
-  if (topics.some((t) => AI_ML_HINTS.includes(t))) return 'AI/ML';
-  if (repo.language === 'Python' && !WEB_LANGS.includes(repo.language)) {
-    // Python defaults to AI/ML for this portfolio
-    return 'AI/ML';
-  }
-  if (repo.language && WEB_LANGS.includes(repo.language)) return 'Web App';
-  return 'Other';
-}
-
 function prettifyName(name: string): string {
   return name.replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim();
 }
@@ -50,7 +36,7 @@ function repoToProject(repo: GithubRepo): Project {
   ).slice(0, 8);
   return {
     title: prettifyName(repo.name),
-    category: categorize(repo),
+    category: repo.language || 'Other',
     description: repo.description || 'No description available.',
     tech,
     github: repo.html_url,
@@ -66,9 +52,8 @@ const ProjectsSection = () => {
   const projects = useMemo(() => repos.map(repoToProject), [repos]);
 
   const filters = useMemo(() => {
-    const cats = new Set(projects.map((p) => p.category));
-    const order = ['All', 'Web App', 'AI/ML', 'Other'];
-    return order.filter((f) => f === 'All' || cats.has(f));
+    const cats = Array.from(new Set(projects.map((p) => p.category))).sort();
+    return ['All', ...cats];
   }, [projects]);
 
   const filtered = useMemo(
@@ -123,12 +108,6 @@ const ProjectsSection = () => {
                     <div className="absolute inset-0 gradient-cta opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute inset-0 flex items-center justify-center p-12">
                       <Code2 size={64} className="text-muted-foreground/20 group-hover:text-primary/40 transition-colors duration-300" />
-                    </div>
-                    <div
-                      className="absolute top-4 right-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest backdrop-blur-md"
-                      style={{ background: 'hsl(0 0% 0% / 0.5)', border: '1px solid hsl(0 0% 100% / 0.1)' }}
-                    >
-                      {project.status}
                     </div>
                   </div>
                   <div className="p-8 flex-1 flex flex-col">

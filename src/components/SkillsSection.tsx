@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const SKILLS: { category: string; items: string[]; icon: typeof Layers; color: string }[] = [
   { category: "Frontend", items: ["HTML", "CSS", "React.js", "Tailwind CSS"], icon: Layers, color: 'hsl(187 94% 43%)' },
-  { category: "Backend", items: ["Java", "Python", "Fast API"], icon: Code2, color: 'hsl(234 89% 74%)' },
+  { category: "Backend", items: ["Java", "Python", "REST API"], icon: Code2, color: 'hsl(234 89% 74%)' },
   { category: "Databases", items: ["MySQL", "MongoDB"], icon: Database, color: 'hsl(152 69% 53%)' },
   { category: "Tools", items: ["Git", "GitHub", "Docker", "Vercel"], icon: Cpu, color: 'hsl(25 95% 53%)' },
   { category: "AI Tools", items: ["ChatGPT", "Gemini", "Claude", "Lovable", "Bolt", "WindSurf"], icon: Terminal, color: 'hsl(330 81% 60%)' },
