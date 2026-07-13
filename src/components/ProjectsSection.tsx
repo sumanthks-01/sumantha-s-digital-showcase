@@ -109,12 +109,6 @@ const ProjectsSection = () => {
                     <div className="absolute inset-0 flex items-center justify-center p-12">
                       <Code2 size={64} className="text-muted-foreground/20 group-hover:text-primary/40 transition-colors duration-300" />
                     </div>
-                    <div
-                      className="absolute top-4 right-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest backdrop-blur-md"
-                      style={{ background: 'hsl(0 0% 0% / 0.5)', border: '1px solid hsl(0 0% 100% / 0.1)' }}
-                    >
-                      {project.status}
-                    </div>
                   </div>
                   <div className="p-8 flex-1 flex flex-col">
                     <div className="text-primary text-xs font-bold mb-2 uppercase tracking-widest">
